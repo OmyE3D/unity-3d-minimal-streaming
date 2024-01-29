@@ -1780,7 +1780,7 @@ class Observer {
 class VideoPlayer {
  constructor() {
    this.playerElement = null;
-   this.videoElement = null;
+   this.videoElement = document.getElementById('Video');;
    this.fullScreenButtonElement = null;
    this.inputRemoting = null;
    this.sender = null;
@@ -1788,18 +1788,14 @@ class VideoPlayer {
  }
 
  /**
-* @param {Element} playerElement parent element for create video player
-*/
- createPlayer(playerElement) {
-   this.playerElement = playerElement;
 
-   this.videoElement = document.createElement('video');
-   this.videoElement.id = 'Video';
-   this.videoElement.style.touchAction = 'none';
-   this.videoElement.playsInline = true;
+*/
+ createPlayer() {
+ 
+   this.videoElement.style.display = 'block';
    this.videoElement.srcObject = new MediaStream();
    this.videoElement.addEventListener('loadedmetadata', this._onLoadedVideo.bind(this), true);
-   this.playerElement.appendChild(this.videoElement);
+
 
  }
 
@@ -2574,7 +2570,7 @@ class WebSocketSignaling extends EventTarget {
 
 
 /** @type {Element} */
-let playButton;
+let playButton = document.getElementById('playButton');
 /** @type {RenderStreaming} */
 let renderstreaming;
 /** @type {boolean} */
@@ -2613,8 +2609,10 @@ function showPlayButton() {
    elementPlayButton.src = './images/Play.png';
    elementPlayButton.alt = 'Start Streaming';
    playButton = document.getElementById('player').appendChild(elementPlayButton);
-   playButton.addEventListener('click', onClickPlayButton);
  }
+   
+ document.getElementById('playButton').addEventListener('click', onClickPlayButton);
+
 }
 
 function onClickPlayButton() {
