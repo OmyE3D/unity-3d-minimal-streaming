@@ -2603,13 +2603,6 @@ async function setup() {
 }
 
 function showPlayButton() {
- if (!document.getElementById('playButton')) {
-   const elementPlayButton = document.createElement('img');
-   elementPlayButton.id = 'playButton';
-   elementPlayButton.src = './images/Play.png';
-   elementPlayButton.alt = 'Start Streaming';
-   playButton = document.getElementById('player').appendChild(elementPlayButton);
- }
    
  document.getElementById('playButton').addEventListener('click', onClickPlayButton);
 
